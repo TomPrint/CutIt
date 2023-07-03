@@ -72,6 +72,7 @@ def reports_list(request):  # /reports/
     data2 = counter_list
 
     # qs for statistic counters
+    
     def get_surface(
         boolean,
     ):  # function to get surface of all items with a boolean value
@@ -105,6 +106,7 @@ def reports_list(request):  # /reports/
     return render(request, "reports/reports_list.html", context)
 
 # EXPORT TO EXCEL#
+@login_required
 def export(request, format):
     item_resource = ItemResource()
     dataset = item_resource.export()

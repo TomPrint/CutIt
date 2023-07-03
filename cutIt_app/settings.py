@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY_CUTIT")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["https://klewiu.usermd.net/","klewiu.usermd.net/","https://ats-cutit.herokuapp.com", ".herokuapp.com", '127.0.0.1:8000', '127.0.0.1']
+ALLOWED_HOSTS = ["https://klewiu.usermd.net/","klewiu.usermd.net/", '127.0.0.1:8000', '127.0.0.1']
 
 
 # Application definition
@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     # "storages",
 ]
 
-if DEBUG == False:
+if DEBUG == True:
     MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -112,12 +112,12 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-if DEBUG==False:
-    DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-    # PRODUCTION settings
-    CSRF_COOKIE_SECURE=True
-    SECURE_SSL_REDIRECT=True
-    SESSION_COOKIE_SECURE=True
+# if DEBUG==False:
+#     DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+#     # PRODUCTION settings
+#     CSRF_COOKIE_SECURE=True
+#     SECURE_SSL_REDIRECT=True
+#     SESSION_COOKIE_SECURE=True
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
